@@ -203,7 +203,7 @@ function isNumeric(x){
   }
 }
 
-window.onkeypress = function() {
+window.onkeyup = function() {
   calc();
 }
 
