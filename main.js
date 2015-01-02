@@ -29,7 +29,7 @@
       this.ctx.setTransform(1, 0, 0, 1, 0, 0);
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.ctx.setTransform(this.matrix.a, -this.matrix.c, this.matrix.b, -this.matrix.d, this.canvas.width * 0.5, this.canvas.height * 0.5);
-      this.ctx.fillStyle = this.matrix.det > 0 ? 'rgba(64, 255, 64, 0.7)' : 'rgba(255, 64, 64, 0.7)';
+      this.ctx.fillStyle = this.matrix.det > 0 ? 'rgba(64, 255, 64, 0.9)' : 'rgba(255, 64, 64, 0.9)';
       switch (this.shapeType) {
         case 0:
           this.ctx.beginPath();

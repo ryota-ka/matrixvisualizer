@@ -17,7 +17,7 @@ class App
 
     @ctx.setTransform(@matrix.a, -@matrix.c, @matrix.b, -@matrix.d, @canvas.width * 0.5, @canvas.height * 0.5)
 
-    @ctx.fillStyle = if @matrix.det > 0 then 'rgba(64, 255, 64, 0.7)' else 'rgba(255, 64, 64, 0.7)'
+    @ctx.fillStyle = if @matrix.det > 0 then 'rgba(64, 255, 64, 0.9)' else 'rgba(255, 64, 64, 0.9)'
 
     switch @shapeType
       when 0
