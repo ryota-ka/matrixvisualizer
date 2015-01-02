@@ -118,7 +118,11 @@ class App
           @eigenVector[1][0] = (@matrix.a - @eigenValue[0]) / Math.sqrt(@matrix.c * @matrix.c + (@matrix.a - @eigenValue[0]) * (@matrix.a - @eigenValue[0]))
           @eigenVector[1][1] = @matrix.c / Math.sqrt(@matrix.c * @matrix.c + (@matrix.a - @eigenValue[0]) * (@matrix.a - @eigenValue[0]))
 
-        document.getElementById('eigenvalues').textContent = 'eigenvalue' + (@eigenValue[0] == @eigenValue[1] ? ': ' + Math.round(@eigenValue[0] * 1000) / 1000 : 's: ' + Math.round(@eigenValue[0] * 1000) / 1000 + ', ' + Math.round(@eigenValue[1] * 1000) / 1000)
+        if (@eigenValue[0] == @eigenValue[1])
+          eigenvalueString = 'eigenvalue: ' + Math.round(@eigenValue[0] * 1000) / 1000
+        else
+          eigenvalueString = 'eigenvalues: ' + Math.round(@eigenValue[0] * 1000) / 1000 + ', ' + Math.round(@eigenValue[1] * 1000) / 1000
+        document.getElementById('eigenvalues').textContent = eigenvalueString
         if @matrix.det == 0
           if !isFinite(@eigenVector[0][0]) && isFinite(@eigenVector[1][0])
             @eigenVector[0][0] = @eigenVector[1][0]

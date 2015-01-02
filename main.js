@@ -102,7 +102,7 @@
     };
 
     App.prototype.calc = function() {
-      var discriminant, rootd, _ref;
+      var discriminant, eigenvalueString, rootd;
       if (isFinite(this.forms.a.value) && isFinite(this.forms.b.value) && isFinite(this.forms.c.value) && isFinite(this.forms.d.value)) {
         this.matrix.a = parseFloat(this.forms.a.value);
         this.matrix.b = parseFloat(this.forms.b.value);
@@ -130,9 +130,12 @@
             this.eigenVector[1][0] = (this.matrix.a - this.eigenValue[0]) / Math.sqrt(this.matrix.c * this.matrix.c + (this.matrix.a - this.eigenValue[0]) * (this.matrix.a - this.eigenValue[0]));
             this.eigenVector[1][1] = this.matrix.c / Math.sqrt(this.matrix.c * this.matrix.c + (this.matrix.a - this.eigenValue[0]) * (this.matrix.a - this.eigenValue[0]));
           }
-          document.getElementById('eigenvalues').textContent = 'eigenvalue' + ((_ref = this.eigenValue[0] === this.eigenValue[1]) != null ? _ref : ': ' + Math.round(this.eigenValue[0] * 1000) / {
-            1000: 's: ' + Math.round(this.eigenValue[0] * 1000) / 1000 + ', ' + Math.round(this.eigenValue[1] * 1000) / 1000
-          });
+          if (this.eigenValue[0] === this.eigenValue[1]) {
+            eigenvalueString = 'eigenvalue: ' + Math.round(this.eigenValue[0] * 1000) / 1000;
+          } else {
+            eigenvalueString = 'eigenvalues: ' + Math.round(this.eigenValue[0] * 1000) / 1000 + ', ' + Math.round(this.eigenValue[1] * 1000) / 1000;
+          }
+          document.getElementById('eigenvalues').textContent = eigenvalueString;
           if (this.matrix.det === 0) {
             if (!isFinite(this.eigenVector[0][0]) && isFinite(this.eigenVector[1][0])) {
               this.eigenVector[0][0] = this.eigenVector[1][0];
