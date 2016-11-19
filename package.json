@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babelify": "^7.3.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "watchify": "watchify -t [ babelify --presets [ latest ] ] src/main.js -o main.js"
+  }
+}
