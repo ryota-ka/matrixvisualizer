@@ -24,7 +24,7 @@ export default class CanvasDrawer {
     const { a, b, c, d, determinant } = matrix;
 
     ctx.setTransform(a, -c, b, -d, width / 2, height / 2);
-    ctx.fillStyle = determinant > 0 ? 'rgba(64, 255, 64, 0.9)' : 'rgba(255, 64, 64, 0.9)';
+    ctx.fillStyle = determinant > 0 ? 'rgba(64, 255, 64, 0.5)' : 'rgba(255, 64, 64, 0.5)';
 
     switch (this.shapeType) {
       case 0:
@@ -76,7 +76,7 @@ export default class CanvasDrawer {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, width, height);
 
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
     ctx.lineWidth = 1;
 
     for (let i of range(Math.ceil(canvas.width / 100))) {
